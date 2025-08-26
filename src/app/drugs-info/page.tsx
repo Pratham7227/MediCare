@@ -5,6 +5,27 @@ import { Search, Pill, AlertTriangle, Info, Clock, Shield, Heart, Brain, Activit
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 
+// Drug interface
+interface Drug {
+  id: number;
+  name: string;
+  genericName: string;
+  category: string;
+  usage: string;
+  sideEffects: string;
+  contraindications: string;
+  warnings: string;
+  dosage: string;
+  interactions: string;
+  pregnancyCategory: string;
+  breastfeeding: string;
+  storage: string;
+  manufacturer: string;
+  prescriptionRequired: boolean;
+  rating: number;
+  reviews: number;
+}
+
 // Enhanced mock drug data
 const mockDrugs = [
   {
@@ -176,7 +197,7 @@ export default function DrugsInfoPage() {
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [showFilters, setShowFilters] = useState(false);
   const [filteredDrugs, setFilteredDrugs] = useState(mockDrugs);
-  const [selectedDrug, setSelectedDrug] = useState<any>(null);
+  const [selectedDrug, setSelectedDrug] = useState<Drug | null>(null);
   const [sortBy, setSortBy] = useState('name');
 
   // Filter and sort drugs
@@ -218,7 +239,7 @@ export default function DrugsInfoPage() {
     setFilteredDrugs(filtered);
   }, [searchTerm, selectedCategory, sortBy]);
 
-  const handleDrugClick = (drug: any) => {
+  const handleDrugClick = (drug: Drug) => {
     setSelectedDrug(drug);
   };
 

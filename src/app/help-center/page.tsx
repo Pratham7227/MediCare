@@ -197,7 +197,7 @@ export default function HelpCenterPage() {
             Help Center
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Get the support you need. We're here to help with any questions or concerns you may have.
+            Get the support you need. We&apos;re here to help with any questions or concerns you may have.
           </p>
         </div>
 
@@ -330,12 +330,12 @@ export default function HelpCenterPage() {
               </div>
               <div>
                 <h2 className="text-2xl font-bold text-gray-900">Send Feedback</h2>
-                <p className="text-gray-600">We'd love to hear from you</p>
+                <p className="text-gray-600">We&apos;d love to hear from you</p>
               </div>
             </div>
             
             <p className="text-gray-600 mb-6">
-              Have a question, suggestion, or complaint? We're here to help and improve our services.
+              Have a question, suggestion, or complaint? We&apos;re here to help and improve our services.
             </p>
             
             <form onSubmit={handleSubmit} className="space-y-6">
@@ -449,7 +449,7 @@ export default function HelpCenterPage() {
         <div className="mt-16 bg-gradient-to-r from-blue-500 to-green-500 rounded-2xl p-8 text-white">
           <div className="text-center mb-8">
             <h2 className="text-3xl font-bold mb-4">Our Support Statistics</h2>
-            <p className="text-blue-100">We're committed to providing excellent support</p>
+            <p className="text-blue-100">We&apos;re committed to providing excellent support</p>
           </div>
           
           <div className="grid md:grid-cols-4 gap-6">

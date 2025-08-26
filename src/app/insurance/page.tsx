@@ -127,7 +127,7 @@ export default function InsurancePage() {
             Health Insurance Claims
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Get help with your insurance claims and access our comprehensive support services. We're here to make the process simple and stress-free.
+            Get help with your insurance claims and access our comprehensive support services. We&apos;re here to make the process simple and stress-free.
           </p>
         </div>
 

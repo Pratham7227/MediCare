@@ -5,6 +5,24 @@ import { Search, MapPin, Filter, Star, Clock, Phone, Calendar, User, Award, Buil
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 
+// Doctor interface
+interface Doctor {
+  id: number;
+  name: string;
+  specialization: string;
+  hospital: string;
+  fees: string;
+  rating: number;
+  experience: string;
+  location: string;
+  photoUrl: string;
+  availability: string;
+  phone: string;
+  languages: string[];
+  education: string;
+  awards: string[];
+}
+
 // Enhanced mock data for doctors
 const mockDoctors = [
   {
@@ -171,7 +189,7 @@ export default function DoctorSearchPage() {
   const [minRating, setMinRating] = useState('');
   const [showFilters, setShowFilters] = useState(false);
   const [filteredDoctors, setFilteredDoctors] = useState(mockDoctors);
-  const [selectedDoctor, setSelectedDoctor] = useState<any>(null);
+  const [selectedDoctor, setSelectedDoctor] = useState<Doctor | null>(null);
 
   // Filter doctors based on search criteria
   useEffect(() => {
@@ -214,7 +232,7 @@ export default function DoctorSearchPage() {
     setFilteredDoctors(filtered);
   }, [searchTerm, selectedLocation, selectedSpecialization, maxFees, minRating]);
 
-  const handleBookAppointment = (doctor: any) => {
+  const handleBookAppointment = (doctor: Doctor) => {
     setSelectedDoctor(doctor);
   };
 

@@ -27,6 +27,24 @@ interface Facility {
   services: string[];
 }
 
+// Interface for OpenStreetMap/Overpass API element
+interface OSMElement {
+  type: string;
+  lat: number;
+  lon: number;
+  tags?: {
+    name?: string;
+    'name:en'?: string;
+    address?: string;
+    'addr:street'?: string;
+    phone?: string;
+    'contact:phone'?: string;
+    opening_hours?: string;
+    amenity?: string;
+    [key: string]: string | undefined;
+  };
+}
+
 // Function to fetch real hospital data from OpenStreetMap
 async function fetchRealHospitalData(lat: number, lon: number, radius: number = 5000): Promise<Facility[]> {
   try {
@@ -72,14 +90,14 @@ async function fetchRealHospitalData(lat: number, lon: number, radius: number = 
     let idCounter = 1;
 
     // Process the results
-    data.elements?.forEach((element: any) => {
+    data.elements?.forEach((element: OSMElement) => {
       if (element.type === 'node' && element.tags) {
         const tags = element.tags;
         let type: 'hospital' | 'clinic' | 'pharmacy' | 'lab' = 'hospital';
-        let name = tags.name || tags['name:en'] || 'Unknown Facility';
-        let address = tags.address || tags['addr:street'] || 'Address not available';
-        let phone = tags.phone || tags['contact:phone'] || '+91-XXX-XXX-XXXX';
-        let hours = tags.opening_hours || 'Hours not available';
+        const name = tags.name || tags['name:en'] || 'Unknown Facility';
+        const address = tags.address || tags['addr:street'] || 'Address not available';
+        const phone = tags.phone || tags['contact:phone'] || '+91-XXX-XXX-XXXX';
+        const hours = tags.opening_hours || 'Hours not available';
 
         // Determine facility type
         if (tags.amenity === 'hospital') {

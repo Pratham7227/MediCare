@@ -156,7 +156,7 @@ export default function AboutPage() {
             About <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-green-600">MediCare</span>
           </h1>
           <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-            We're revolutionizing healthcare by connecting patients with trusted medical professionals 
+            Were revolutionizing healthcare by connecting patients with trusted medical professionals 
             and providing comprehensive health information in one accessible platform. Our mission is 
             to make quality healthcare available to everyone, everywhere.
           </p>
