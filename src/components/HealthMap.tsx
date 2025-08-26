@@ -18,6 +18,18 @@ interface Facility {
   services: string[];
 }
 
+// Extend Leaflet Marker to include facility data
+interface ExtendedMarker extends L.Marker {
+  facilityData?: Facility;
+}
+
+// Extend Window interface to include our global function
+declare global {
+  interface Window {
+    facilityClick: (facilityId: string) => void;
+  }
+}
+
 interface HealthMapProps {
   userLocation: [number, number] | null;
   facilities: Facility[];
@@ -172,11 +184,11 @@ export default function HealthMap({ userLocation, facilities, onFacilityClick, s
         `);
 
       // Store facility data for click handling
-      (marker as any).facilityData = facility;
+      (marker as ExtendedMarker).facilityData = facility;
     });
 
     // Handle facility clicks
-    (window as any).facilityClick = (facilityId: string) => {
+    window.facilityClick = (facilityId: string) => {
       const facility = facilities.find(f => f.id === facilityId);
       if (facility) {
         onFacilityClick(facility);
