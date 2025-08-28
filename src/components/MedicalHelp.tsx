@@ -136,7 +136,7 @@ export default function MedicalHelp() {
               </li>
               <li className="flex items-center gap-2 text-gray-700">
                 <span className="text-red-500">•</span>
-                Severe bleeding that won't stop
+                Severe bleeding that won&apos;t stop
               </li>
               <li className="flex items-center gap-2 text-gray-700">
                 <span className="text-red-500">•</span>
