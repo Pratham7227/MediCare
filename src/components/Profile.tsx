@@ -14,7 +14,11 @@ export default function Profile() {
     medicalHistory: ['Hypertension', 'Type 2 Diabetes'],
     currentMedications: ['Metformin 500mg', 'Lisinopril 10mg'],
     insuranceProvider: 'Blue Cross Blue Shield',
-    insuranceNumber: 'BC123456789'
+    insuranceNumber: 'BC123456789',
+    bloodDonor: true,
+    lastBloodDonation: '2024-06-15',
+    organDonor: true,
+    donorCardNumber: 'OD123456789'
   });
 
   const [isEditing, setIsEditing] = useState(false);
@@ -131,6 +135,100 @@ export default function Profile() {
               <label className="text-sm font-medium text-gray-600">Policy Number</label>
               <p className="text-gray-800 font-mono">{user.insuranceNumber}</p>
             </div>
+          </div>
+        </section>
+
+        {/* Blood Donation */}
+        <section className="bg-white rounded-xl p-4 shadow-sm">
+          <h2 className="text-xl font-bold text-gray-800 mb-4 flex items-center gap-2">
+            🩸 Blood Donation
+          </h2>
+          <div className="space-y-4">
+            <div className="flex items-center justify-between p-3 bg-red-50 rounded-lg">
+              <div className="flex items-center gap-3">
+                <div className={`w-4 h-4 rounded-full ${user.bloodDonor ? 'bg-red-500' : 'bg-gray-300'}`}></div>
+                <div>
+                  <p className="font-medium text-gray-800">Blood Donor Status</p>
+                  <p className="text-sm text-gray-600">{user.bloodDonor ? 'Active Donor' : 'Not a Donor'}</p>
+                </div>
+              </div>
+              <button 
+                onClick={() => setUser({...user, bloodDonor: !user.bloodDonor})}
+                className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+                  user.bloodDonor 
+                    ? 'bg-red-600 text-white hover:bg-red-700' 
+                    : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+                }`}
+              >
+                {user.bloodDonor ? 'Active' : 'Inactive'}
+              </button>
+            </div>
+            {user.bloodDonor && (
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <label className="text-sm font-medium text-gray-600">Blood Type</label>
+                  <p className="text-red-600 font-semibold text-lg">{user.bloodType}</p>
+                </div>
+                <div>
+                  <label className="text-sm font-medium text-gray-600">Last Donation</label>
+                  <p className="text-gray-800">{user.lastBloodDonation}</p>
+                </div>
+              </div>
+            )}
+            <div className="bg-blue-50 p-3 rounded-lg">
+              <p className="text-sm text-blue-800">
+                💡 <strong>Did you know?</strong> One blood donation can save up to 3 lives. You can donate every 56 days.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Organ Donation */}
+        <section className="bg-white rounded-xl p-4 shadow-sm">
+          <h2 className="text-xl font-bold text-gray-800 mb-4 flex items-center gap-2">
+            💚 Organ Donation
+          </h2>
+          <div className="space-y-4">
+            <div className="flex items-center justify-between p-3 bg-green-50 rounded-lg">
+              <div className="flex items-center gap-3">
+                <div className={`w-4 h-4 rounded-full ${user.organDonor ? 'bg-green-500' : 'bg-gray-300'}`}></div>
+                <div>
+                  <p className="font-medium text-gray-800">Organ Donor Status</p>
+                  <p className="text-sm text-gray-600">{user.organDonor ? 'Registered Donor' : 'Not Registered'}</p>
+                </div>
+              </div>
+              <button 
+                onClick={() => setUser({...user, organDonor: !user.organDonor})}
+                className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+                  user.organDonor 
+                    ? 'bg-green-600 text-white hover:bg-green-700' 
+                    : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+                }`}
+              >
+                {user.organDonor ? 'Registered' : 'Not Registered'}
+              </button>
+            </div>
+            {user.organDonor && (
+              <div>
+                <label className="text-sm font-medium text-gray-600">Donor Card Number</label>
+                <p className="text-gray-800 font-mono">{user.donorCardNumber}</p>
+              </div>
+            )}
+            <div className="bg-green-50 p-3 rounded-lg">
+              <p className="text-sm text-green-800">
+                💚 <strong>Make a difference:</strong> One organ donor can save up to 8 lives and enhance the lives of many more through tissue donation.
+              </p>
+            </div>
+            {user.organDonor && (
+              <div className="grid grid-cols-2 gap-3">
+                <button className="bg-green-100 text-green-700 p-2 rounded-lg text-sm font-medium hover:bg-green-200 transition-colors">
+                  View Donor Card
+                </button>
+                <button className="bg-blue-100 text-blue-700 p-2 rounded-lg text-sm font-medium hover:bg-blue-200 transition-colors">
+                  Update Preferences
+                </button>
+              </div>
+            )}
           </div>
         </section>
 
