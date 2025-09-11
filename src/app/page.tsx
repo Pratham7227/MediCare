@@ -218,6 +218,137 @@ export default function HomePage() {
               </div>
             </section>
 
+            {/* AI Search & FAQ Section */}
+            <section className="py-20 px-4 bg-gray-50">
+              <div className="max-w-6xl mx-auto">
+                <div className="text-center mb-16">
+                  <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-6">
+                    🤖 <span className="text-blue-600">AI-Powered</span> Healthcare Assistant
+                  </h2>
+                  <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Get instant answers to your medical questions with our intelligent AI assistant. Ask anything about symptoms, treatments, or general health information.
+                  </p>
+                </div>
+
+                {/* AI Search Box */}
+                <div className="bg-white rounded-3xl shadow-2xl p-8 mb-16 max-w-4xl mx-auto">
+                  <div className="flex items-center gap-4 mb-6">
+                    <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center">
+                      <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                      </svg>
+                    </div>
+                    <h3 className="text-2xl font-bold text-gray-800">Ask Our AI Assistant</h3>
+                  </div>
+                  
+                  <div className="relative mb-6">
+                    <textarea
+                      placeholder="Ask me anything about your health, symptoms, medications, or medical procedures... For example: 'What are the symptoms of diabetes?' or 'Can I take ibuprofen with blood pressure medication?'"
+                      className="w-full p-4 border-2 border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none text-gray-700"
+                      rows={4}
+                    />
+                    <button className="absolute bottom-4 right-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white p-3 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl">
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+                      </svg>
+                    </button>
+                  </div>
+
+                  <div className="flex flex-wrap gap-2 mb-6">
+                    <span className="text-sm text-gray-600 font-medium">Quick suggestions:</span>
+                    {[
+                      "Headache remedies",
+                      "Diabetes symptoms", 
+                      "Blood pressure medication",
+                      "First aid for cuts",
+                      "Pregnancy care tips"
+                    ].map((suggestion, index) => (
+                      <button
+                        key={index}
+                        className="bg-blue-50 hover:bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm transition-colors border border-blue-200"
+                      >
+                        {suggestion}
+                      </button>
+                    ))}
+                  </div>
+
+                  <div className="bg-gradient-to-r from-yellow-50 to-orange-50 border border-yellow-200 rounded-lg p-4">
+                    <div className="flex items-start gap-3">
+                      <div className="text-yellow-600 mt-1">
+                        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                          <path fillRule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
+                        </svg>
+                      </div>
+                      <div>
+                        <p className="text-sm text-yellow-800 font-medium">Medical Disclaimer</p>
+                        <p className="text-xs text-yellow-700 mt-1">
+                          This AI assistant provides general health information only and should not replace professional medical advice. Always consult with qualified healthcare professionals for medical concerns.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* FAQ Section */}
+                <div className="max-w-4xl mx-auto">
+                  <div className="text-center mb-12">
+                    <h3 className="text-3xl font-bold text-gray-800 mb-4">Frequently Asked Questions</h3>
+                    <p className="text-lg text-gray-600">Get quick answers to common healthcare questions</p>
+                  </div>
+
+                  <div className="space-y-4">
+                    {[
+                      {
+                        question: "How do I book an appointment with a doctor?",
+                        answer: "You can book appointments through our platform by searching for doctors in your area, viewing their availability, and selecting a convenient time slot. You'll receive a confirmation email with appointment details and any preparation instructions."
+                      },
+                      {
+                        question: "Is my medical information secure on MediCare?",
+                        answer: "Yes, absolutely. We use industry-standard encryption and comply with HIPAA regulations to ensure your medical information is completely secure. Your data is never shared without your explicit consent and is stored on secure, encrypted servers."
+                      },
+                      {
+                        question: "Can I get prescription refills through the platform?",
+                        answer: "Yes, you can request prescription refills from your healthcare provider through our secure messaging system. Your doctor will review the request and send the prescription directly to your preferred pharmacy."
+                      },
+                      {
+                        question: "What should I do in a medical emergency?",
+                        answer: "For immediate medical emergencies, always call 911 first. Our emergency feature can help you find the nearest hospital and provide your medical information to first responders. Use our emergency button for quick access to your medical ID card."
+                      },
+                      {
+                        question: "How accurate is the drug information provided?",
+                        answer: "Our drug database is sourced from FDA-approved information and is regularly updated by medical professionals. However, always consult with your pharmacist or doctor before taking any new medications or if you have concerns about drug interactions."
+                      },
+                      {
+                        question: "Can I use MediCare without insurance?",
+                        answer: "Yes, MediCare can be used regardless of your insurance status. Many doctors on our platform offer self-pay options, and we provide transparent pricing for consultations and services. You can also use our platform to find community health centers and free clinics."
+                      }
+                    ].map((faq, index) => (
+                      <div key={index} className="bg-white rounded-xl shadow-md overflow-hidden">
+                        <div className="p-6">
+                          <button className="w-full text-left flex items-center justify-between group">
+                            <h4 className="text-lg font-semibold text-gray-800 pr-4">{faq.question}</h4>
+                            <svg className="w-5 h-5 text-gray-500 group-hover:text-blue-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                            </svg>
+                          </button>
+                          <div className="mt-4 text-gray-600 leading-relaxed">
+                            {faq.answer}
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="text-center mt-12">
+                    <p className="text-gray-600 mb-4">Still have questions?</p>
+                    <button className="bg-gradient-to-r from-blue-600 to-green-600 hover:from-blue-700 hover:to-green-700 text-white px-8 py-3 rounded-xl font-medium shadow-lg hover:shadow-xl transition-all duration-300">
+                      Contact Our Support Team
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </section>
+
             {/* Stats Section */}
             <section className="py-16 px-4 bg-gradient-to-r from-blue-600 to-green-600">
               <div className="max-w-6xl mx-auto">
